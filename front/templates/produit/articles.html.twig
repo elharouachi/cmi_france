@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+       {% block body -%}
+
+              <table class="table table-image">
+                     <thead class="thead-dark">
+                     <tr class="text-center">
+                            <th>Name</th>
+                            <th>image</th>
+                            <th>Actions</th>
+                     </tr>
+                     </thead>
+                     <!-- Table body with the list of products -->
+                     <tbody id="productList">
+                     {% for article in articles %}
+                            <tr>
+                                   <td>{{ article.title }}</td>
+                                   <td>{{ article.imageFilename }}</td>
+                                   <td class="w-25 align-middle"><a  href="{{ url('cmi_detail_article', { 'id': article.id }) }}"class="btn btn-info" >View</a></td>
+                            </tr>
+                     {% endfor %}
+                     </tbody>
+              </table>
+       {% endblock %}

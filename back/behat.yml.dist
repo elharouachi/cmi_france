@@ -1,0 +1,28 @@
+default:
+    formatters:
+        progress: true
+
+    suites:
+        default:
+            paths:
+                features: "%paths.base%/tests/features"
+            contexts:
+                - App\Tests\Bootstrap\FeatureContext
+
+
+    autoload:
+        "": "%paths.base%/tests/Bootstrap"
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: tests/Bootstrap/bootstrap.php
+            kernel:
+                class: App\Kernel
+                path: ~
+                environment: ~
+                debug: false
+        Behat\MinkExtension:
+            base_url: 'http://localhost:8080/'
+            sessions:
+                symfony:
+                    symfony: ~

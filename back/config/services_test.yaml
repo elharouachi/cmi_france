@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+    App\Tests\Bootstrap\FeatureContext:
+        arguments:
+            $kernel: '@kernel'
+
+
+    App\Tests\Bootstrap\Request: ~
+
+    App\Tests\Bootstrap\RestContext: ~
+    App\Tests\Bootstrap\JsonContext: ~

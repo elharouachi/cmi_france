@@ -1,0 +1,23 @@
+api_platform:
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    patch_formats:
+        json: ['application/merge-patch+json']
+    swagger:
+        versions: [3]
+    # Allow using plain IDs for JSON format.
+    allow_plain_identifiers: true
+    oauth:
+        enabled: true
+        clientId: '%env(OAUTH_GOOGLE_ID)%'
+        clientSecret: '%env(OAUTH_GOOGLE_SECRET)%'
+        type: 'oauth2'
+        # The oauth flow grant type.
+        flow: 'authorizationCode'
+        # The oauth authentication url.
+        authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth'
+        # The oauth token url.
+        tokenUrl: 'https://www.googleapis.com/oauth2/v4/token'
+        # The oauth scopes.
+        scopes:
+            email: 'Allow to retrieve user email'
