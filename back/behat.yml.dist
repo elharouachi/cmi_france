@@ -8,12 +8,15 @@ default:
                 features: "%paths.base%/tests/features"
             contexts:
                 - App\Tests\Bootstrap\FeatureContext
-
-
+                - App\Tests\Bootstrap\SnippetContext
+                - App\Tests\Bootstrap\RestContext
+                - App\Tests\Bootstrap\JsonExtendedContext:
+                      httpCallResultPool: 'behatch:behatch.http_call.result_pool'
     autoload:
         "": "%paths.base%/tests/Bootstrap"
 
     extensions:
+        Behatch\Extension: ~
         FriendsOfBehat\SymfonyExtension:
             bootstrap: tests/Bootstrap/bootstrap.php
             kernel:
